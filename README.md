@@ -1,6 +1,7 @@
 # NDD-RSpec
 
 [![Build Status](https://secure.travis-ci.org/ddidier/ndd-rspec.png)](http://travis-ci.org/ddidier/ndd-rspec)
+[![Dependency Status](https://gemnasium.com/ddidier/ndd-rspec.png)](https://gemnasium.com/ddidier/ndd-rspec)
 
 RSpec utilities.
 
