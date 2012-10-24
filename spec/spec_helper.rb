@@ -1,5 +1,4 @@
 # encoding: utf-8
-
 require 'rubygems'
 require 'spork'
 
@@ -11,6 +10,13 @@ require 'spork'
 # ----------------------------------------------------------------------------------------------------------------------
 
 Spork.prefork do
+
+  # ----- code coverage
+
+  if ENV["COVERAGE"] and not ENV['DRB']
+    require 'simplecov'
+    SimpleCov.start
+  end
 
   # ----- requirements
 
@@ -45,6 +51,13 @@ end
 # ----------------------------------------------------------------------------------------------------------------------
 
 Spork.each_run do
+
+  # ----- code coverage
+
+  if ENV["COVERAGE"] and not ENV['DRB']
+    require 'simplecov'
+    SimpleCov.start
+  end
 
   # ----- files reload
   lib_path = File.expand_path('../../lib', __FILE__)

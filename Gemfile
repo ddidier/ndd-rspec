@@ -18,9 +18,9 @@ group :development do
   gem 'guard-rspec',    '~> 2.1.0'
   gem 'guard-spork',    '~> 1.2.0'
   gem 'jeweler',        '~> 1.8.4'
- #gem 'rcov',           '~> 0'
   gem 'rdoc',           '~> 3.12'
   gem 'rspec',          '~> 2.11.0'
+  gem 'simplecov',      '~> 0.7.0',   :require => false
 
   case HOST_OS
     when /darwin/i
