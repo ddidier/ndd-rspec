@@ -2,6 +2,22 @@
 
 RSpec utilities.
 
+## Matchers
+
+### be\_sorted\_by
+
+```ruby
+[1, 2, 3].should be_sorted_by(:to_i) # => true
+[1, 3, 2].should be_sorted_by(:to_i) # => false
+```
+
+### be\_reverse\_sorted\_by
+
+```ruby
+[3, 2, 1].should be_reverse_sorted_by(:to_i) # => true
+[1, 3, 2].should be_reverse_sorted_by(:to_i) # => false
+```
+
 ## Contributing to ndd-rspec
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
