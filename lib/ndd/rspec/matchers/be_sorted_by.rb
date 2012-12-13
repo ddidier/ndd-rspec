@@ -7,6 +7,10 @@ module Ndd
   module RSpec
     module Matchers
 
+      def be_sorted_by(attribute)
+        BeSortedBy.new(attribute)
+      end
+
       # ----------------------------------------------------------------------------------------------------------------
       # Ensures that an enumerable (responding to <code>Enumerable#collect</code>) is sorted by the given attribute.
       #
@@ -25,6 +29,10 @@ module Ndd
           @actual_attributes = attributes
           @sorted_attributes = attributes.sort
           @sorted_attributes == @actual_attributes
+        end
+
+        def description
+          "be sorted by '#@attribute'"
         end
 
         def failure_message_for_should

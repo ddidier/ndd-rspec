@@ -23,6 +23,12 @@ describe "be reverse sorted by", { :type => 'matcher' } do
     UNSORTED_ARRAY.should_not be_reverse_sorted_by(:to_i)
   end
 
+  it "describes itself" do
+    matcher = be_reverse_sorted_by(:to_i)
+    matcher.matches?(REVERSE_SORTED_ARRAY)
+    matcher.description.should == "be sorted by 'to_i' in reverse order"
+  end
+
   it "provides message on #failure_message" do
     matcher = be_reverse_sorted_by(:to_i)
     matcher.matches?(UNSORTED_ARRAY)
