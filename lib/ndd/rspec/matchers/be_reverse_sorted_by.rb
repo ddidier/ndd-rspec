@@ -7,6 +7,10 @@ module Ndd
   module RSpec
     module Matchers
 
+      def be_reverse_sorted_by(attribute)
+        BeReverseSortedBy.new(attribute)
+      end
+
       # ----------------------------------------------------------------------------------------------------------------
       # Ensures that an enumerable (responding to <code>Enumerable#collect</code>) is sorted by the given attribute in reverse order
       #
@@ -25,6 +29,10 @@ module Ndd
           @actual_attributes = attributes
           @sorted_attributes = attributes.sort.reverse
           @sorted_attributes == @actual_attributes
+        end
+
+        def description
+          "be sorted by '#@attribute' in reverse order"
         end
 
         def failure_message_for_should

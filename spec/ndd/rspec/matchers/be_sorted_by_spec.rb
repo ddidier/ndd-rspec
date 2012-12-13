@@ -23,6 +23,12 @@ describe "be sorted by", { :type => 'matcher' } do
     UNSORTED_ARRAY.should_not be_sorted_by(:to_i)
   end
 
+  it "describes itself" do
+    matcher = be_sorted_by(:to_i)
+    matcher.matches?(SORTED_ARRAY)
+    matcher.description.should == "be sorted by 'to_i'"
+  end
+
   it "provides message on #failure_message" do
     matcher = be_sorted_by(:to_i)
     matcher.matches?(UNSORTED_ARRAY)
