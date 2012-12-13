@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "ndd-rspec"
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["David DIDIER"]
-  s.date = "2012-10-24"
+  s.date = "2012-12-13"
   s.description = "RSpec utilities"
   s.email = "c_inconnu2@yahoo.fr"
   s.extra_rdoc_files = [
@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
     "lib/ndd/rspec/matchers.rb",
     "lib/ndd/rspec/matchers/be_reverse_sorted_by.rb",
     "lib/ndd/rspec/matchers/be_sorted_by.rb",
+    "ndd-rspec.gemspec",
     "spec/ndd/rspec/matchers/be_reverse_sorted_by_spec.rb",
     "spec/ndd/rspec/matchers/be_sorted_by_spec.rb",
     "spec/ndd/rspec/matchers/shared_examples.rb",
@@ -45,43 +46,40 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<rspec>, ["~> 2.11.0"])
-      s.add_development_dependency(%q<bundler>, ["~> 1.2.0"])
-      s.add_development_dependency(%q<guard>, ["~> 1.5.0"])
-      s.add_development_dependency(%q<guard-bundler>, ["~> 1.0.0"])
-      s.add_development_dependency(%q<guard-rspec>, ["~> 2.1.0"])
-      s.add_development_dependency(%q<guard-spork>, ["~> 1.2.0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.8.4"])
+      s.add_runtime_dependency(%q<rspec>, ["~> 2.0"])
+      s.add_development_dependency(%q<bundler>, ["~> 1.2"])
+      s.add_development_dependency(%q<guard>, ["~> 1.0"])
+      s.add_development_dependency(%q<guard-bundler>, ["~> 1.0"])
+      s.add_development_dependency(%q<guard-rspec>, ["~> 2.0"])
+      s.add_development_dependency(%q<guard-spork>, ["~> 1.0"])
+      s.add_development_dependency(%q<jeweler>, ["~> 1.8"])
       s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
-      s.add_development_dependency(%q<rspec>, ["~> 2.11.0"])
-      s.add_development_dependency(%q<simplecov>, ["~> 0.7.0"])
+      s.add_development_dependency(%q<simplecov>, ["~> 0.7"])
       s.add_development_dependency(%q<libnotify>, [">= 0"])
       s.add_development_dependency(%q<rb-inotify>, [">= 0"])
     else
-      s.add_dependency(%q<rspec>, ["~> 2.11.0"])
-      s.add_dependency(%q<bundler>, ["~> 1.2.0"])
-      s.add_dependency(%q<guard>, ["~> 1.5.0"])
-      s.add_dependency(%q<guard-bundler>, ["~> 1.0.0"])
-      s.add_dependency(%q<guard-rspec>, ["~> 2.1.0"])
-      s.add_dependency(%q<guard-spork>, ["~> 1.2.0"])
-      s.add_dependency(%q<jeweler>, ["~> 1.8.4"])
+      s.add_dependency(%q<rspec>, ["~> 2.0"])
+      s.add_dependency(%q<bundler>, ["~> 1.2"])
+      s.add_dependency(%q<guard>, ["~> 1.0"])
+      s.add_dependency(%q<guard-bundler>, ["~> 1.0"])
+      s.add_dependency(%q<guard-rspec>, ["~> 2.0"])
+      s.add_dependency(%q<guard-spork>, ["~> 1.0"])
+      s.add_dependency(%q<jeweler>, ["~> 1.8"])
       s.add_dependency(%q<rdoc>, ["~> 3.12"])
-      s.add_dependency(%q<rspec>, ["~> 2.11.0"])
-      s.add_dependency(%q<simplecov>, ["~> 0.7.0"])
+      s.add_dependency(%q<simplecov>, ["~> 0.7"])
       s.add_dependency(%q<libnotify>, [">= 0"])
       s.add_dependency(%q<rb-inotify>, [">= 0"])
     end
   else
-    s.add_dependency(%q<rspec>, ["~> 2.11.0"])
-    s.add_dependency(%q<bundler>, ["~> 1.2.0"])
-    s.add_dependency(%q<guard>, ["~> 1.5.0"])
-    s.add_dependency(%q<guard-bundler>, ["~> 1.0.0"])
-    s.add_dependency(%q<guard-rspec>, ["~> 2.1.0"])
-    s.add_dependency(%q<guard-spork>, ["~> 1.2.0"])
-    s.add_dependency(%q<jeweler>, ["~> 1.8.4"])
+    s.add_dependency(%q<rspec>, ["~> 2.0"])
+    s.add_dependency(%q<bundler>, ["~> 1.2"])
+    s.add_dependency(%q<guard>, ["~> 1.0"])
+    s.add_dependency(%q<guard-bundler>, ["~> 1.0"])
+    s.add_dependency(%q<guard-rspec>, ["~> 2.0"])
+    s.add_dependency(%q<guard-spork>, ["~> 1.0"])
+    s.add_dependency(%q<jeweler>, ["~> 1.8"])
     s.add_dependency(%q<rdoc>, ["~> 3.12"])
-    s.add_dependency(%q<rspec>, ["~> 2.11.0"])
-    s.add_dependency(%q<simplecov>, ["~> 0.7.0"])
+    s.add_dependency(%q<simplecov>, ["~> 0.7"])
     s.add_dependency(%q<libnotify>, [">= 0"])
     s.add_dependency(%q<rb-inotify>, [">= 0"])
   end
