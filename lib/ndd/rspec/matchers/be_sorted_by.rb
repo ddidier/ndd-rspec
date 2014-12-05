@@ -1,6 +1,6 @@
 # encoding: utf-8
 require 'rspec/expectations'
-require 'rspec/expectations/differ'
+# require 'rspec/expectations/differ'
 
 
 module Ndd
@@ -35,7 +35,7 @@ module Ndd
           "be sorted by '#@attribute'"
         end
 
-        def failure_message_for_should
+        def failure_message
           return <<-MESSAGE
 
 expected '#{@actual.inspect}' to be sorted by '#@attribute'

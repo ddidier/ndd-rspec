@@ -35,4 +35,4 @@ RSpec utilities.
 
 ## Copyright
 
-Copyright (c) 2012 David DIDIER. See LICENSE.txt for further details.
+Copyright (c) 2014 David DIDIER. See LICENSE.txt for further details.
