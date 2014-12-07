@@ -12,10 +12,12 @@ module Ndd
       end
 
       # ----------------------------------------------------------------------------------------------------------------
-      # Ensures that an enumerable (responding to <code>Enumerable#collect</code>) is sorted by the given attribute.
+      # Ensures that an enumerable (responding to <code>Enumerable#collect</code>) is sorted by the given attribute of
+      # the objects it contains.
       #
       # Examples:
-      #   [MyObject.new(my_attribute: 1), MyObject.new(my_attribute: 2)].should be_sorted_by(:my_attribute) }
+      #   Duck = Struct.new(:color)
+      #   [Duck.new('Grey'), Duck.new('White')].should be_sorted_by(:color) }
       #
       class BeSortedBy
 

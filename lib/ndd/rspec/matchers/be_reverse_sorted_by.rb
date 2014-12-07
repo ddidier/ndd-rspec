@@ -12,11 +12,12 @@ module Ndd
       end
 
       # ----------------------------------------------------------------------------------------------------------------
-      # Ensures that an enumerable (responding to <code>Enumerable#collect</code>) is sorted by the given attribute
-      # in reverse order.
+      # Ensures that an enumerable (responding to <code>Enumerable#collect</code>) is sorted in reverse order by the
+      # given attribute of the objects it contains.
       #
       # Examples:
-      #   [MyObject.new(my_attribute: 2), MyObject.new(my_attribute: 1)].should be_reverse_sorted_by(:my_attribute) }
+      #   Duck = Struct.new(:color)
+      #   [Duck.new('White'), Duck.new('Grey')].should be_sorted_by(:color) }
       #
       class BeReverseSortedBy
 
