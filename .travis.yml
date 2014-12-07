@@ -10,3 +10,7 @@ branches:
   only:
     - master
     - development
+addons:
+  code_climate:
+    repo_token:
+      secure: sXPF5z5L9A7SLhO5/qU7OrC7xX7AV2chSk5Itv7L4dCKU46Gp2Y4qB18R+jVu2cnikaluL+dtCd203IpzTmGicS/PMNefLfaw/1h5At9X01z/bFVYZyypBJNQ/4bkc+lZ/w1LRfUPWLEhjwvESYwlUKBiVE7a69k/jigrNDTNHA=
