@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'spec_helper'
 
-shared_examples_for "an RSpec matcher" do |options|
+shared_examples_for 'an RSpec matcher' do |options|
 
   let(:valid_value)   { options.fetch(:valid_value) }
   let(:invalid_value) { options.fetch(:invalid_value) }

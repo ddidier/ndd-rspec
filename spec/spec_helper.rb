@@ -1,4 +1,7 @@
 # encoding: utf-8
+require 'codeclimate-test-reporter'
+CodeClimate::TestReporter.start
+
 require 'rubygems'
 require 'spork'
 
@@ -9,20 +12,27 @@ require 'spork'
 # configuration or code from libraries loaded here, you'll need to restart spork for it take effect.
 # ----------------------------------------------------------------------------------------------------------------------
 
+lib_path = File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib'))
+spec_dir = File.dirname(__FILE__)
+
 Spork.prefork do
+
+  # ----- load path
+
+  $LOAD_PATH.unshift(lib_path)
+  $LOAD_PATH.unshift(spec_dir)
 
   # ----- code coverage
 
-  if ENV["COVERAGE"] and not ENV['DRB']
+  if ENV['COVERAGE'] and not ENV['DRB']
     require 'simplecov'
-    SimpleCov.start
+    SimpleCov.start 'test_frameworks'
   end
 
   # ----- requirements
 
   require 'rspec'
   require 'ndd/rspec/matchers'
-
 
   # ----- RSpec configuration
 
@@ -31,14 +41,15 @@ Spork.prefork do
     config.mock_with :rspec
 
     # ----- filters
-    config.treat_symbols_as_metadata_keys_with_true_values = true
     config.alias_example_to :fit, :focused
-    config.fail_fast = false
-    config.filter_run :focused
+    config.filter_run_including :focused
+    config.order = 'random'
     config.run_all_when_everything_filtered = true
+    config.expect_with :rspec do |c|
+      c.syntax = :expect
+    end
 
     # ----- libraries
-    # Ndd-RSpec
     config.include Ndd::RSpec::Matchers, :type => :matcher
   end
 
@@ -54,15 +65,14 @@ Spork.each_run do
 
   # ----- code coverage
 
-  if ENV["COVERAGE"] and not ENV['DRB']
-    require 'simplecov'
-    SimpleCov.start
-  end
+  # if ENV['COVERAGE'] and not ENV['DRB']
+  #   require 'simplecov'
+  #   SimpleCov.start 'test_frameworks'
+  # end
 
   # ----- files reload
-  lib_path = File.expand_path('../../lib', __FILE__)
-  Dir["#{lib_path}/**/*.rb"].each do |file|
-    load file
-  end
+  Dir["#{lib_path}/**/*.rb"].each { |file| require file }
+  Dir["#{spec_dir}/support/**/*.rb"].each { |file| require file }
 
+  require 'ndd/rspec/matchers'
 end

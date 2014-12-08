@@ -1,15 +1,19 @@
-.sass-cache
-.rspec
-/.bundle
-/vendor/bundle
-/log/*
-/tmp/*
-/db/*.sqlite3
-/public/system/*
-/coverage/
-/spec/tmp/*
-**.orig
-rerun.txt
+# bundler
+.bundle
+
+# jeweler
 pkg
+
+# rcov
+coverage
+coverage.data
+
+# rdoc
+rdoc
+
+# rubymine
 /.idea/
-/*.rvmrc
+
+# yard
+doc
+.yardoc

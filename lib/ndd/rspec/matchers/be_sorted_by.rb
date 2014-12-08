@@ -1,6 +1,6 @@
 # encoding: utf-8
 require 'rspec/expectations'
-require 'rspec/expectations/differ'
+# require 'rspec/expectations/differ'
 
 
 module Ndd
@@ -12,10 +12,12 @@ module Ndd
       end
 
       # ----------------------------------------------------------------------------------------------------------------
-      # Ensures that an enumerable (responding to <code>Enumerable#collect</code>) is sorted by the given attribute.
+      # Ensures that an enumerable (responding to <code>Enumerable#collect</code>) is sorted by the given attribute of
+      # the objects it contains.
       #
       # Examples:
-      #   [MyObject.new(my_attribute: 1), MyObject.new(my_attribute: 2)].should be_sorted_by(:my_attribute) }
+      #   Duck = Struct.new(:color)
+      #   [Duck.new('Grey'), Duck.new('White')].should be_sorted_by(:color) }
       #
       class BeSortedBy
 
@@ -35,7 +37,7 @@ module Ndd
           "be sorted by '#@attribute'"
         end
 
-        def failure_message_for_should
+        def failure_message
           return <<-MESSAGE
 
 expected '#{@actual.inspect}' to be sorted by '#@attribute'

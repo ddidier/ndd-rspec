@@ -1,3 +1,12 @@
+# NDD RSpec changelog
+
+## Version 1.0.0
+
+* updated Ruby version to 2.1
+* updated RSpec version to 3.1
+* updated version of all development dependencies
+* added CodeClimate test coverage
+
 ## Version 0.1.0
 
 * initial commit
