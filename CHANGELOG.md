@@ -1,3 +1,5 @@
+# NDD RSpec changelog
+
 ## Version 1.0.0
 
 * updated Ruby version to 2.1
