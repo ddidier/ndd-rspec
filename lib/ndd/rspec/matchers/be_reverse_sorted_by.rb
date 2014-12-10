@@ -1,6 +1,5 @@
 # encoding: utf-8
 require 'rspec/expectations'
-# require 'rspec/expectations/differ'
 
 
 module Ndd
@@ -12,7 +11,7 @@ module Ndd
       end
 
       # ----------------------------------------------------------------------------------------------------------------
-      # Ensures that an enumerable (responding to <code>Enumerable#collect</code>) is sorted in reverse order by the
+      # Ensures that an enumerable (responding to {Enumerable#collect}) is sorted in reverse order by the
       # given attribute of the objects it contains.
       #
       # Examples:
