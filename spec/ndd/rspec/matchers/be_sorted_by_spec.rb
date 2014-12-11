@@ -2,9 +2,9 @@
 require 'spec_helper'
 require 'ndd/rspec/matchers'
 require 'ndd/rspec/matchers/shared_examples'
+require_relative 'duck'
 
-
-describe 'be sorted by', { :type => 'matcher' } do
+describe 'be sorted by', {:type => 'matcher'} do
 
   SORTED_ARRAY = [1, 2, 3].freeze
   UNSORTED_ARRAY = [1, 3, 2].freeze
@@ -15,12 +15,12 @@ describe 'be sorted by', { :type => 'matcher' } do
     let(:matcher) { be_sorted_by(:to_i) }
   end
 
-  it 'matches when actual is sorted according to the given attribute' do
-    expect(SORTED_ARRAY).to be_sorted_by(:to_i)
+  context 'when the actual is sorted according to the given attribute' do
+    it { expect(SORTED_ARRAY).to be_sorted_by(:to_i) }
   end
 
-  it 'does not match when actual is not sorted according to the given attribute' do
-    expect(UNSORTED_ARRAY).to_not be_sorted_by(:to_i)
+  context 'when the actual is not sorted according to the given attribute' do
+    it { expect(UNSORTED_ARRAY).to_not be_sorted_by(:to_i) }
   end
 
   it 'describes itself' do
@@ -40,6 +40,16 @@ expected attributes: [1, 2, 3]
      got attributes: [1, 3, 2]
 
     MESSAGE
+  end
+
+  describe 'documentation' do
+    describe 'sorting' do
+      let(:a_pair_of_sorted_ducks) { [Duck.new('Grey'), Duck.new('White')] }
+      let(:a_pair_of_reverse_sorted_ducks) { [Duck.new('White'), Duck.new('Grey')] }
+
+      it { expect(a_pair_of_sorted_ducks).to be_sorted_by(:color) }
+      it { expect(a_pair_of_reverse_sorted_ducks).to_not be_sorted_by(:color) }
+    end
   end
 
 end

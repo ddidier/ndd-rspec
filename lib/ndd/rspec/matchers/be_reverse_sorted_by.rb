@@ -1,24 +1,33 @@
 # encoding: utf-8
 require 'rspec/expectations'
-# require 'rspec/expectations/differ'
 
 
 module Ndd
   module RSpec
     module Matchers
 
+      # Ensures that an enumerable responding to {#collect} is sorted in reverse order by the given attribute or
+      # method return value of the objects it contains.
+      #
+      # @example
+      #     Duck = Struct.new(:color)
+      #
+      #     describe 'sorting' do
+      #       let(:a_pair_of_sorted_ducks)         { [Duck.new('Grey'), Duck.new('White')] }
+      #       let(:a_pair_of_reverse_sorted_ducks) { [Duck.new('White'), Duck.new('Grey')] }
+      #
+      #       it { expect(a_pair_of_sorted_ducks).to_not     be_reverse_sorted_by(:color) }
+      #       it { expect(a_pair_of_reverse_sorted_ducks).to be_reverse_sorted_by(:color) }
+      #     end
+      #
+      # @param attribute [Symbol] the attribute or the method to sort with
+      # @return [Ndd::RSpec::Matchers::BeSortedBy]
+      #
       def be_reverse_sorted_by(attribute)
         BeReverseSortedBy.new(attribute)
       end
 
-      # ----------------------------------------------------------------------------------------------------------------
-      # Ensures that an enumerable (responding to <code>Enumerable#collect</code>) is sorted in reverse order by the
-      # given attribute of the objects it contains.
-      #
-      # Examples:
-      #   Duck = Struct.new(:color)
-      #   [Duck.new('White'), Duck.new('Grey')].should be_sorted_by(:color) }
-      #
+      # @private
       class BeReverseSortedBy
 
         def initialize(attribute = nil)
@@ -50,8 +59,9 @@ expected attributes: #{@sorted_attributes.inspect}
         def ==(other)
           matches?(other)
         end
-
       end
+
+      private_constant :BeReverseSortedBy
 
     end
   end

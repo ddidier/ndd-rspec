@@ -1,0 +1,2 @@
+
+Duck = Struct.new(:color)
