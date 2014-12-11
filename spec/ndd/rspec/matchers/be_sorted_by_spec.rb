@@ -2,7 +2,7 @@
 require 'spec_helper'
 require 'ndd/rspec/matchers'
 require 'ndd/rspec/matchers/shared_examples'
-
+require_relative 'duck'
 
 describe 'be sorted by', {:type => 'matcher'} do
 
@@ -43,8 +43,6 @@ expected attributes: [1, 2, 3]
   end
 
   describe 'documentation' do
-    Duck = Struct.new(:color)
-
     describe 'sorting' do
       let(:a_pair_of_sorted_ducks) { [Duck.new('Grey'), Duck.new('White')] }
       let(:a_pair_of_reverse_sorted_ducks) { [Duck.new('White'), Duck.new('Grey')] }
