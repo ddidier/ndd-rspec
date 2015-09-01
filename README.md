@@ -4,6 +4,8 @@
 [![Dependency Status](https://gemnasium.com/ddidier/ndd-rspec.png)](https://gemnasium.com/ddidier/ndd-rspec)
 [![Code Climate](https://codeclimate.com/github/ddidier/ndd-rspec/badges/gpa.svg)](https://codeclimate.com/github/ddidier/ndd-rspec)
 [![Test Coverage](https://codeclimate.com/github/ddidier/ndd-rspec/badges/coverage.svg)](https://codeclimate.com/github/ddidier/ndd-rspec)
+[![Documentation Coverage](https://inch-ci.org/github/ddidier/ndd-rspec.svg)](https://inch-ci.org/github/ddidier/ndd-rspec)
+[![Yard Documentation](http://img.shields.io/badge/yard-docs-blue.svg)](http://www.rubydoc.info/github/ddidier/ndd-rspec)
 
 RSpec utilities.
 
