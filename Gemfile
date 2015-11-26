@@ -5,23 +5,23 @@ HOST_OS = RbConfig::CONFIG['host_os']
 
 # ------------------------------------------------------------------------------
 # Dependencies required to use the gem.
-gem 'rspec', '~> 3.1'
+gem 'rspec', '~> 3.3'
 
 
 # ------------------------------------------------------------------------------
 # Dependencies to develop the gem.
 # Everything needed to run rake, tests, features, etc.
 group :development do
-  gem 'bundler',                    '~> 1.7',  require: false
-  gem 'guard',                      '~> 2.8',  require: false
-  gem 'guard-bundler',              '~> 2.0',  require: false
-  gem 'guard-rspec',                '~> 4.3',  require: false
-  gem 'guard-spork',                '~> 2.0',  require: false
-  gem 'jeweler',                    '~> 2.0',  require: false
-  gem 'rdoc',                       '~> 4.1',  require: false
-  gem 'simplecov',                  '~> 0.9',  require: false
-  gem 'spork',                      '~> 0.9',  require: false
-  gem 'yard',                       '~> 0.8',  require: false
+  gem 'bundler',       '~> 1.10', require: false
+  gem 'guard',         '~> 2.13', require: false
+  gem 'guard-bundler', '~> 2.0',  require: false
+  gem 'guard-rspec',   '~> 4.6',  require: false
+  gem 'guard-spork',   '~> 2.0',  require: false
+  gem 'jeweler',       '~> 2.0',  require: false
+  gem 'rdoc',          '~> 4.1',  require: false
+  gem 'simplecov',     '~> 0.9',  require: false
+  gem 'spork',         '~> 0.9',  require: false
+  gem 'yard',          '~> 0.8',  require: false
 
   case HOST_OS
     when /darwin/i
