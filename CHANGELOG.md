@@ -1,5 +1,9 @@
 # NDD RSpec changelog
 
+## Version 1.1.2
+
+- Updated dependencies to fix security alerts
+
 ## Version 1.1.1
 
 - Updated dependencies to fix security alerts
