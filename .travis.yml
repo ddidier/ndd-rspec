@@ -1,17 +1,13 @@
+sudo: false
 language: ruby
 rvm:
-  - 1.9.3
-  - 2.0.0
-  - 2.1.7
-  - 2.2.3
+  - 2.4.1
+  - 2.3.4
+  - 2.2.7
 before_install:
-  - gem update --system
-  - gem --version
-branches:
-  only:
-    - master
-    - development
+  - gem install bundler -v 1.14.6
 addons:
   code_climate:
-    repo_token:
-      secure: sXPF5z5L9A7SLhO5/qU7OrC7xX7AV2chSk5Itv7L4dCKU46Gp2Y4qB18R+jVu2cnikaluL+dtCd203IpzTmGicS/PMNefLfaw/1h5At9X01z/bFVYZyypBJNQ/4bkc+lZ/w1LRfUPWLEhjwvESYwlUKBiVE7a69k/jigrNDTNHA=
+    repo_token: 9706e71f85fc2b64de770bd8964808d70b0ddfcbc78beaadcc96fd7fc26f5903
+after_success:
+  - bundle exec codeclimate-test-reporter

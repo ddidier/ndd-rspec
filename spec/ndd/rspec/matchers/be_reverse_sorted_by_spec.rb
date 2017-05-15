@@ -1,55 +1,39 @@
-# encoding: utf-8
 require 'spec_helper'
-require 'ndd/rspec/matchers'
-require 'ndd/rspec/matchers/shared_examples'
-require_relative 'duck'
+require 'ndd/rspec/matchers/be_reverse_sorted_by'
 
+RSpec.describe 'be reverse sorted by' do
 
-describe 'be reverse sorted by', {:type => 'matcher'} do
+  REVERSE_SORTED_ARRAY = %w[3 2 1].freeze
+  UNSORTED_ARRAY = %w[1 3 2].freeze
 
-  REVERSE_SORTED_ARRAY = [3, 2, 1].freeze
-  REVERSE_UNSORTED_ARRAY = [1, 3, 2].freeze
-
-  it_behaves_like 'an RSpec matcher',
-                  :valid_value => REVERSE_SORTED_ARRAY,
-                  :invalid_value => REVERSE_UNSORTED_ARRAY do
-    let(:matcher) { be_reverse_sorted_by(:to_i) }
+  # --------------------------------------------------------------------------------------------------------------------
+  describe '#description' do
+    it 'provides a description' do
+      expect(be_reverse_sorted_by(:to_i).description)
+        .to eq("be sorted in reverse order by 'to_i'")
+    end
   end
 
-  context 'when the actual is sorted according to the given attribute in reverse order' do
-    it { expect(REVERSE_SORTED_ARRAY).to be_reverse_sorted_by(:to_i) }
+  # --------------------------------------------------------------------------------------------------------------------
+  context 'when the actual array is reverse sorted according to the given attribute' do
+    subject { REVERSE_SORTED_ARRAY }
+
+    it { is_expected.to be_reverse_sorted_by(:to_i) }
   end
 
-  context 'when the actual is not sorted according to the given attribute in reverse order' do
-    it { expect(REVERSE_UNSORTED_ARRAY).to_not be_reverse_sorted_by(:to_i) }
-  end
+  # --------------------------------------------------------------------------------------------------------------------
+  context 'when the actual array is not reverse sorted according to the given attribute' do
+    subject { UNSORTED_ARRAY }
 
-  it 'describes itself' do
-    matcher = be_reverse_sorted_by(:to_i)
-    matcher.matches?(REVERSE_SORTED_ARRAY)
-    expect(matcher.description).to eq("be sorted by 'to_i' in reverse order")
-  end
+    it { is_expected.to_not be_reverse_sorted_by(:to_i) }
 
-  it 'provides message on #failure_message' do
-    matcher = be_reverse_sorted_by(:to_i)
-    matcher.matches?(REVERSE_UNSORTED_ARRAY)
-
-    expect(matcher.failure_message).to eq <<-MESSAGE
-
-expected '[1, 3, 2]' to be sorted by 'to_i' in reverse order
-expected attributes: [3, 2, 1]
-     got attributes: [1, 3, 2]
-
-    MESSAGE
-  end
-
-  describe 'documentation' do
-    describe 'sorting' do
-      let(:a_pair_of_sorted_ducks) { [Duck.new('Grey'), Duck.new('White')] }
-      let(:a_pair_of_reverse_sorted_ducks) { [Duck.new('White'), Duck.new('Grey')] }
-
-      it { expect(a_pair_of_sorted_ducks).to_not be_reverse_sorted_by(:color) }
-      it { expect(a_pair_of_reverse_sorted_ducks).to be_reverse_sorted_by(:color) }
+    it 'provides a failure message' do
+      matcher = be_reverse_sorted_by(:to_i)
+      matcher.matches?(subject)
+      message = "expected '[\"1\", \"3\", \"2\"]'to be sorted in reverse order by 'to_i' but\n"
+      message << "  expected attributes: [3, 2, 1]\n"
+      message << '  actual attributes: [1, 3, 2]'
+      expect(matcher.failure_message).to eq(message)
     end
   end
 

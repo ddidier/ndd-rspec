@@ -1,5 +1,10 @@
 # NDD RSpec changelog
 
+## Version 1.2.0
+
+- Drop Jeweler
+- Update matchers to newer versions of RSpec
+
 ## Version 1.1.2
 
 - Updated dependencies to fix security alerts

@@ -1,38 +1,26 @@
 
-# ----------------------------------------------------------------------------------------------------------------------
-# bundler
-# ----------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------- bundler -----
 
 guard 'bundler' do
   watch('Gemfile')
+  watch('ndd-rspec-rails.gemspec')
 end
 
-
-# ----------------------------------------------------------------------------------------------------------------------
-# spork (must be before rspec and cucumber)
-# ----------------------------------------------------------------------------------------------------------------------
-
-guard 'spork',
-      wait: 60 do
-
-  watch('Gemfile')
-  watch('Gemfile.lock')
-
-  # ----- spec directory
-  watch('spec/spec_helper.rb')
-end
-
-
-# ----------------------------------------------------------------------------------------------------------------------
-# rspec
-# ----------------------------------------------------------------------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------- rspec -----
 
 guard :rspec, cmd: 'bundle exec rspec' do
 
-  # ----- lib directory
-  watch(%r{^lib/(.+)\.rb$}) { |m| %W(spec/#{m[1]}_spec.rb) }
+  require 'guard/rspec/dsl'
+  dsl = Guard::RSpec::Dsl.new(self)
 
-  # ----- spec directory
-  watch(%r{^spec/.+_spec\.rb$})
-  watch(%r{^spec/support/(.+)\.rb$}) { %W(spec) }
+  # RSpec files
+  rspec = dsl.rspec
+  watch(rspec.spec_helper) { rspec.spec_dir }
+  watch(rspec.spec_support) { rspec.spec_dir }
+  watch(rspec.spec_files)
+
+  # Ruby files
+  ruby = dsl.ruby
+  dsl.watch_spec_files_for(ruby.lib_files)
+
 end

@@ -1,18 +1,17 @@
-# bundler
-.bundle
+/tmp/
 
-# jeweler
-pkg
+# appraisals
+/gemfiles/*.lock
+/gemfiles/.bundle
 
-# rcov
-coverage
-coverage.data
-
-# rdoc
-rdoc
+# rspec
+/spec/examples.txt
 
 # rubymine
 /.idea/
+
+# simplecov
+/coverage/
 
 # yard
 doc
