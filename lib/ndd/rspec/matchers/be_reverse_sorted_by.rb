@@ -1,5 +1,3 @@
-require 'rspec/expectations'
-
 module Ndd
   module RSpec
     module Matchers #:nodoc:
