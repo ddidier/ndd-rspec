@@ -1,5 +1,13 @@
 # NDD RSpec changelog
 
+## Version 1.2.1
+
+- Update dependencies minor versions
+- Update documentation
+- Add support for multiple RSpec versions
+- Add Appraisal support to Travis
+- Add WWTD support to Travis
+
 ## Version 1.2.0
 
 - Drop Jeweler
